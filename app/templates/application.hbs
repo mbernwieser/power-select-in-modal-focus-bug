@@ -1,5 +1,19 @@
-{{page-title "PowerSelectInModalFocusBug"}}
-
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<BsModal
+  @open={{this.modalIsOpen}}
+  @onHidden={{fn (mut this.modalIsOpen) false}} as |modal|
+>
+  <modal.body>
+    <PowerSelect
+      @selected={{this.selectedOption}}
+      @options={{array 'Foo' 'Bar' 'Baz'}}
+      @onChange={{fn (mut this.selectedOption)}}
+      @searchEnabled={{true}}
+      @onOpen={{this.setFocusManually}} as |option|
+    >
+      {{option}}
+    </PowerSelect>
+  </modal.body>
+</BsModal>
+<button type="button" {{on 'click' (fn (mut this.modalIsOpen) true)}}>
+  Open modal
+</button>

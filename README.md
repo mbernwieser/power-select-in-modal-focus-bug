@@ -1,18 +1,3 @@
-# power-select-in-modal-focus-bug
-
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
-* [Yarn](https://yarnpkg.com/)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
-
 ## Installation
 
 * `git clone <repository-url>` this repository
@@ -25,33 +10,21 @@ You will need the following things properly installed on your computer.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
+## Bug description
 
-Make use of the many generators for code, try `ember help generate` for more details
+```
+Hi, what are possible reasons that an input-field doesn't get the focus via `.focus()`? Having this problem right now with a power-select which is placed in a modal (both wormholed) where the search-input doesn't get focused when you open the select-options. Already tried to add a delay with `later()`, tried to unfocus the previous focused element first with `document.activeElement.blur()` - but the focus stays on the power-select-trigger... The strange thing is if you click on the search-input once, the focus works (also if you close the power-select + reopen it)
+```
 
-### Running Tests
+## How to reproduce
 
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `yarn lint`
-* `yarn lint:fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+1. open power-select
+1. **-> no focus on search-input**
+1. click on search-input
+1. **-> focus on search-input**
+1. close power-select
+1. open power-select
+1. **-> focus still works**
+1. close power-select + modal
+1. open modal + power-select
+1. **-> no focus on search-input**
