@@ -12,9 +12,7 @@
 
 ## Bug description
 
-```
-Hi, what are possible reasons that an input-field doesn't get the focus via `.focus()`? Having this problem right now with a power-select which is placed in a modal (both wormholed) where the search-input doesn't get focused when you open the select-options. Already tried to add a delay with `later()`, tried to unfocus the previous focused element first with `document.activeElement.blur()` - but the focus stays on the power-select-trigger... The strange thing is if you click on the search-input once, the focus works (also if you close the power-select + reopen it)
-```
+What are possible reasons that an input-field doesn't get the focus via `.focus()`? Having this problem right now with a power-select which is placed in a modal (both wormholed) where the search-input doesn't get focused when you open the select-options. Already tried to add a delay with `later()`, tried to unfocus the previous focused element first with `document.activeElement.blur()` - but the focus stays on the power-select-trigger... The strange thing is that if you click on the search-input once, the focus works (also if you close the power-select + reopen it)
 
 ## How to reproduce
 
